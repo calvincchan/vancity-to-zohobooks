@@ -9,6 +9,10 @@
   },
   "author": "Calvin C Chan",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calvincchan/vancity-to-zohobooks"
+  },
   "dependencies": {
     "csv-parser": "^3.2.0",
     "dayjs": "^1.11.13"
