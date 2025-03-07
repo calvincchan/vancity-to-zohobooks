@@ -1,11 +1,18 @@
 const fs = require("fs");
 const dayjs = require("dayjs");
 const csv = require("csv-parser");
+const { exit } = require("process");
 
-/* TODO: use env var instead of hardcode */
-const inputFilePath = "./data/statement.csv";
-const outputFilePath = "./data/statement_converted.csv";
+/* prepare parameters */
+const inputFilePath = require.resolve("./" + process.argv[2]);
+console.log("Processing Vancity transaction CSV file:", inputFilePath);
+if (!inputFilePath.endsWith(".csv")) {
+  console.error("Input file must be a CSV file.");
+  exit(1);
+}
+const outputFilePath = inputFilePath.replace(".csv", "-converted.csv");
 
+/* read and convert CSV file */
 const headers = [
   "Bank Account",
   "Date",
